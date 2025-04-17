@@ -19,6 +19,8 @@ ser_2 = serial.Serial('/dev/ttyUSB1', baudrate=9600, timeout=1)
 
 total_load_1 = None
 total_load_2 = None
+processed_distance_1 = None
+processed_distance_2 = None
 
 READ_PROCESSED_DISTANCE = bytes([0x01, 0x03, 0x01, 0x00, 0x00, 0x01, 0x85, 0xF6])
 
