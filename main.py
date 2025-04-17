@@ -8,7 +8,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-app(CORS)
+CORS(app)
 
 cams = [
     cv2.VideoCapture(0),
