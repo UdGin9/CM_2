@@ -42,8 +42,10 @@ def update_sensor_data():
     while True:
         processed_distance_1 = read_sensor(READ_PROCESSED_DISTANCE,ser_1)
         processed_distance_2 = read_sensor(READ_PROCESSED_DISTANCE,ser_2)
-        total_load_1 = round(processed_distance_1 / 100,2)
-        total_load_2 = round(processed_distance_2 / 100,2)
+        if processed_distance_1 !=0 and processed_distance_1 != None: 
+            total_load_1 = round(processed_distance_1 / 100,2)
+        if processed_distance_2 !=0 and processed_distance_2 != None:
+            total_load_2 = round(processed_distance_2 / 100,2)
         time.sleep(1)
 
 def generate_feed(camera_index):
