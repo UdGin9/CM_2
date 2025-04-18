@@ -66,10 +66,10 @@ def video_feed(cam_id):
 
 @app.route('/get_sensor_data')
 def get_sensor_data():
-    return jsonify({'sensor_data_4': round(processed_distance_1,1) if processed_distance_1 is not None else 0,
-                    'sensor_data_5': round(processed_distance_2,1) if processed_distance_2 is not None else 0,
-                    'total_load_1': round(total_load_1,1) if total_load_1 is not None else 0,
-                    'total_load_2': round(total_load_2,1) if total_load_2 is not None else 0,
+    return jsonify({'sensor_data_4': int(processed_distance_1) if processed_distance_1 is not None else 0,
+                    'sensor_data_5': int(processed_distance_2) if processed_distance_2 is not None else 0,
+                    'total_load_1': int(total_load_1) if total_load_1 is not None else 0,
+                    'total_load_2': int(total_load_2) if total_load_2 is not None else 0,
                     })
 
 @app.route('/')
