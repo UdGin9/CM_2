@@ -43,9 +43,9 @@ def update_sensor_data():
         processed_distance_1 = read_sensor(READ_PROCESSED_DISTANCE,ser_1)
         processed_distance_2 = read_sensor(READ_PROCESSED_DISTANCE,ser_2)
         if processed_distance_1 !=0 and processed_distance_1 != None: 
-            total_load_1 = round(processed_distance_1 / 100,1)
+            total_load_1 = round(processed_distance_1 / 100,2)
         if processed_distance_2 !=0 and processed_distance_2 != None:
-            total_load_2 = round(processed_distance_2 / 100,1)
+            total_load_2 = round(processed_distance_2 / 100,2)
         time.sleep(1)
 
 def generate_feed(camera_index):
@@ -66,10 +66,10 @@ def video_feed(cam_id):
 
 @app.route('/get_sensor_data')
 def get_sensor_data():
-    return jsonify({'sensor_data_4': int(processed_distance_1) if processed_distance_1 is not None else 0,
-                    'sensor_data_5': int(processed_distance_2) if processed_distance_2 is not None else 0,
-                    'total_load_1': int(total_load_1) if total_load_1 is not None else 0,
-                    'total_load_2': int(total_load_2) if total_load_2 is not None else 0,
+    return jsonify({'sensor_data_4': processed_distance_1 if processed_distance_1 is not None else 0,
+                    'sensor_data_5': processed_distance_2 if processed_distance_2 is not None else 0,
+                    'total_load_1': total_load_1 if total_load_1 is not None else 0,
+                    'total_load_2': total_load_2 if total_load_2 is not None else 0,
                     })
 
 @app.route('/')
