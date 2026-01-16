@@ -9,6 +9,10 @@ class CameraStream:
             cap = cv2.VideoCapture(cam_id)
             if not cap.isOpened():
                 raise RuntimeError(f"Не удалось открыть камеру {cam_id}")
+            
+            cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+            cap.set(cv2.CAP_PROP_FPS, 30)
+
             self.cams.append(cap)
 
     def generate_feed(self, camera_index):
