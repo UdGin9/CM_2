@@ -1,4 +1,4 @@
-CAMERA_IDS = [0, 1]
+CAMERA_IDS = [0, 2]
 
 FLASK_PORT = 15555
 
