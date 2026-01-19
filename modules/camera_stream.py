@@ -11,7 +11,7 @@ class CameraStream:
                 raise RuntimeError(f"Не удалось открыть камеру {cam_id}")
             
             cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
-            cap.set(cv2.CAP_PROP_FPS, 30)
+            cap.set(cv2.CAP_PROP_FPS, 60)
 
             self.cams.append(cap)
 
