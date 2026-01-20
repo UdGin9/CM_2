@@ -35,7 +35,7 @@ class SensorReader:
             if len(response) == 7 and response[0] == 0x01:
                 raw_value = response[3:5]
                 value = struct.unpack('>H', raw_value)[0]
-                return value / 100.0
+                return value
             else:
                 print("Неверный ответ от датчика:", response.hex())
                 return None
